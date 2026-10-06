@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Rampalli Vamsi | SEO Lead, Content Writer, Web Designer & Film Marketing Strategist</title>
+<meta name="description" content="Rampalli Vamsi: SEO lead and content writer with a B.Tech in CSE (AI & ML). 600+ articles, 279 programmatic SEO pages, 74% organic growth, and a 600K+ film community.">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: { extend: {
+      colors: { brand: { dark:'#0b0f19', card:'#111827', border:'#1f293d' } },
+      fontFamily: { sans:['Inter','system-ui','sans-serif'], mono:['Fira Code','ui-monospace','monospace'] }
+    } }
+  }
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+
+<style>
+  body{background:#0b0f19;color:#f3f4f6;font-family:'Inter',sans-serif;overflow-x:hidden}
+  .glass-panel{background:rgba(17,24,39,.75);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08)}
+  .glass-panel-hover{transition:border-color .4s ease,box-shadow .4s ease,transform .4s ease}
+  .glass-panel-hover:hover{border-color:rgba(99,102,241,.4);box-shadow:0 0 25px -5px rgba(99,102,241,.15);transform:translateY(-2px)}
+  .bg-grid-pattern{background-size:40px 40px;background-image:linear-gradient(to right,rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,.03) 1px,transparent 1px)}
+  ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#0b0f19}
+  ::-webkit-scrollbar-thumb{background:#1f293d;border-radius:4px}::-webkit-scrollbar-thumb:hover{background:#6366f1}
+  :focus-visible{outline:2px solid #818cf8;outline-offset:3px;border-radius:6px}
+
+  /* cinematic intro: letterbox bars that open on load */
+  .bar{position:fixed;left:0;right:0;height:50vh;background:#000;z-index:80;transition:transform 1.4s cubic-bezier(.77,0,.18,1) .25s}
+  .bar.top{top:0}.bar.bot{bottom:0}
+  .loaded .bar.top{transform:translateY(-100%)}.loaded .bar.bot{transform:translateY(100%)}
+  .intro-name{position:fixed;inset:0;z-index:81;display:grid;place-items:center;pointer-events:none;
+    font-weight:800;letter-spacing:.3em;font-size:clamp(1rem,2.5vw,1.4rem);color:#e5e7eb;transition:opacity .6s ease}
+  .loaded .intro-name{opacity:0}
+
+  /* soft reveal on scroll */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s cubic-bezier(.22,.8,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* rotating role caret */
+  .caret::after{content:"";display:inline-block;width:3px;height:.9em;margin-left:6px;background:#34d399;vertical-align:-.08em;animation:blink 1s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
+
+  .progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:70;background:linear-gradient(90deg,#6366f1,#06b6d4,#10b981)}
+
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+    .bar,.intro-name{display:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body class="bg-grid-pattern relative selection:bg-indigo-500 selection:text-white">
+
+<!-- Cinematic intro -->
+<div class="bar top" aria-hidden="true"></div>
+<div class="bar bot" aria-hidden="true"></div>
+<div class="intro-name" aria-hidden="true">RAMPALLI VAMSI</div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<!-- NAVIGATION -->
+<header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-gray-800/80">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <a href="#top" class="flex items-center space-x-3 group">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-emerald-500 flex items-center justify-center font-mono font-bold text-white shadow-lg group-hover:scale-105 transition-transform">RV</div>
+      <div class="flex flex-col">
+        <span class="font-bold text-lg text-white leading-none">Rampalli Vamsi</span>
+        <span class="text-xs text-gray-400 font-mono">AI Techie × SEO Lead</span>
+      </div>
+    </a>
+    <nav class="hidden md:flex items-center space-x-7 text-sm font-medium" aria-label="Primary">
+      <a href="#expertise" class="text-gray-300 hover:text-indigo-400 transition-colors">Expertise</a>
+      <a href="#case-studies" class="text-gray-300 hover:text-indigo-400 transition-colors">Experience</a>
+      <a href="#projects" class="text-gray-300 hover:text-indigo-400 transition-colors">Projects</a>
+      <a href="#tools" class="text-gray-300 hover:text-indigo-400 transition-colors">Growth Calculator</a>
+      <a href="#achievements" class="text-gray-300 hover:text-indigo-400 transition-colors">Honors</a>
+    </nav>
+    <div class="hidden md:flex items-center space-x-4">
+      <button onclick="openSnippet('audit')" class="px-3.5 py-1.5 rounded-lg text-xs font-mono bg-indigo-500/10 text-indigo-400 border border-indigo-500/30 hover:bg-indigo-500/20 transition-all flex items-center space-x-2">
+        <i data-lucide="terminal" class="w-3.5 h-3.5"></i><span>Code Viewer</span>
+      </button>
+      <a href="#contact" class="px-4 py-2 rounded-xl text-sm font-semibold bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-500 hover:to-emerald-500 text-white shadow-lg shadow-indigo-500/20 transition-all hover:scale-105">Contact Me</a>
+    </div>
+    <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white p-2" aria-label="Open menu" aria-expanded="false">
+      <i data-lucide="menu" class="w-6 h-6"></i>
+    </button>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden glass-panel border-t border-gray-800 px-4 pt-2 pb-6 space-y-1">
+    <a href="#expertise" class="block py-2 text-gray-300 hover:text-indigo-400">Expertise</a>
+    <a href="#case-studies" class="block py-2 text-gray-300 hover:text-indigo-400">Experience</a>
+    <a href="#projects" class="block py-2 text-gray-300 hover:text-indigo-400">Projects</a>
+    <a href="#tools" class="block py-2 text-gray-300 hover:text-indigo-400">Growth Calculator</a>
+    <a href="#achievements" class="block py-2 text-gray-300 hover:text-indigo-400">Honors</a>
+    <a href="#contact" class="block py-2 text-emerald-400 font-semibold">Contact Me</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="top" class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+  <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-600/15 rounded-full blur-[140px] pointer-events-none"></div>
+  <div class="absolute top-1/3 right-10 w-[400px] h-[400px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center max-w-4xl mx-auto">
+      <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-semibold mb-6">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>Open to SEO, content and film marketing roles</span>
+      </div>
+
+      <h1 class="text-5xl sm:text-7xl lg:text-8xl font-extrabold tracking-tight text-white leading-[1.05] mb-5">Rampalli Vamsi</h1>
+      <p class="text-2xl sm:text-4xl font-bold mb-7 h-[1.3em]">
+        <span id="role" class="caret bg-gradient-to-r from-indigo-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">SEO Lead</span>
+      </p>
+
+      <p class="text-lg sm:text-xl text-gray-400 leading-relaxed mb-8 max-w-3xl mx-auto">
+        A <span class="text-white font-medium">B.Tech CSE (AI &amp; ML)</span> engineer who chose growth marketing. I build programmatic SEO at scale, write content that ranks, automate the busywork, and run a <span class="text-white font-medium">600K+ film community</span> on the side.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+        <a href="#case-studies" class="w-full sm:w-auto px-8 py-3.5 rounded-xl font-bold bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-500 hover:to-emerald-500 text-white shadow-lg shadow-indigo-500/25 transition-all hover:scale-105 flex items-center justify-center space-x-2">
+          <span>See my work</span><i data-lucide="arrow-down" class="w-5 h-5"></i>
+        </a>
+        <a href="mailto:vamsirampalli1@gmail.com" class="w-full sm:w-auto px-8 py-3.5 rounded-xl font-bold glass-panel hover:bg-gray-800/80 text-gray-200 border border-gray-700 transition-all flex items-center justify-center space-x-2">
+          <i data-lucide="mail" class="w-5 h-5 text-indigo-400"></i><span>Email me</span>
+        </a>
+      </div>
+
+      <div id="stats" class="grid grid-cols-2 md:grid-cols-5 gap-4 pt-8 border-t border-gray-800/80">
+        <div class="glass-panel p-4 rounded-2xl text-center">
+          <div class="text-2xl sm:text-3xl font-extrabold text-indigo-400 font-mono"><span class="counter" data-target="600">0</span>+</div>
+          <div class="text-xs text-gray-400 mt-1 font-semibold">Ranking articles</div>
+        </div>
+        <div class="glass-panel p-4 rounded-2xl text-center">
+          <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-mono"><span class="counter" data-target="74">0</span>%</div>
+          <div class="text-xs text-gray-400 mt-1 font-semibold">Organic growth in 4 months</div>
+        </div>
+        <div class="glass-panel p-4 rounded-2xl text-center">
+          <div class="text-2xl sm:text-3xl font-extrabold text-cyan-400 font-mono"><span class="counter" data-target="279">0</span></div>
+          <div class="text-xs text-gray-400 mt-1 font-semibold">pSEO pages shipped</div>
+        </div>
+        <div class="glass-panel p-4 rounded-2xl text-center">
+          <div class="text-2xl sm:text-3xl font-extrabold text-purple-400 font-mono"><span class="counter" data-target="600">0</span>K+</div>
+          <div class="text-xs text-gray-400 mt-1 font-semibold">Followers on Movies4u</div>
+        </div>
+        <div class="glass-panel p-4 rounded-2xl text-center col-span-2 md:col-span-1">
+          <div class="text-2xl sm:text-3xl font-extrabold text-yellow-400 font-mono"><span class="counter" data-target="500">0</span>+</div>
+          <div class="text-xs text-gray-400 mt-1 font-semibold">Films promoted</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section id="expertise" class="py-20 relative border-t border-gray-800/60">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 reveal">
+      <p class="text-sm font-mono text-indigo-400 mb-2">// what I do</p>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Engineering meets growth strategy</h2>
+      <p class="text-gray-400 mt-3 max-w-2xl mx-auto">Four roles, one habit: find what people search for and get there first.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="glass-panel p-6 rounded-2xl glass-panel-hover reveal">
+        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 mb-6"><i data-lucide="search-code" class="w-6 h-6"></i></div>
+        <h3 class="text-xl font-bold text-white mb-3">SEO Lead</h3>
+        <p class="text-sm text-gray-400 leading-relaxed mb-4">Technical audits, programmatic SEO, local SEO and SERP competitor analysis for enterprise and B2B sites.</p>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-indigo-300">Programmatic SEO</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-indigo-300">Schema JSON-LD</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-indigo-300">Core Web Vitals</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-indigo-300">Local SEO</span>
+        </div>
+      </div>
+      <div class="glass-panel p-6 rounded-2xl glass-panel-hover reveal">
+        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-6"><i data-lucide="pen-line" class="w-6 h-6"></i></div>
+        <h3 class="text-xl font-bold text-white mb-3">Content Writer</h3>
+        <p class="text-sm text-gray-400 leading-relaxed mb-4">Product-led articles, guides and topic clusters across SaaS, FinTech, Healthcare, AI, D2C and e-commerce.</p>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-cyan-300">600+ articles</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-cyan-300">Topical clusters</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-cyan-300">AMP email</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-cyan-300">Copywriting</span>
+        </div>
+      </div>
+      <div class="glass-panel p-6 rounded-2xl glass-panel-hover reveal">
+        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-6"><i data-lucide="layout-template" class="w-6 h-6"></i></div>
+        <h3 class="text-xl font-bold text-white mb-3">Web Designer</h3>
+        <p class="text-sm text-gray-400 leading-relaxed mb-4">SEO-ready pages and tools built with a computer science foundation, plus automations that remove manual work.</p>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-emerald-300">HTML / CSS / JS</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-emerald-300">React / Node.js</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-emerald-300">Python / FastAPI</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-emerald-300">Gumloop</span>
+        </div>
+      </div>
+      <div class="glass-panel p-6 rounded-2xl glass-panel-hover reveal">
+        <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-6"><i data-lucide="clapperboard" class="w-6 h-6"></i></div>
+        <h3 class="text-xl font-bold text-white mb-3">Film Marketing Strategist</h3>
+        <p class="text-sm text-gray-400 leading-relaxed mb-4">Digital promotions, guerrilla event plans and box office analytics for releases across six languages.</p>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-purple-300">500+ films</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-purple-300">Box office tracking</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-purple-300">Short-form video</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-purple-300">Community</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE / CASE STUDIES -->
+<section id="case-studies" class="py-20 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 reveal">
+      <div>
+        <p class="text-sm font-mono text-emerald-400 mb-2">// proven impact</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Experience and case studies</h2>
+      </div>
+      <div class="flex flex-wrap gap-2 mt-4 md:mt-0" role="group" aria-label="Filter by company">
+        <button data-filter="all" class="cs-filter-btn px-4 py-1.5 rounded-lg text-xs font-semibold transition-all">All</button>
+        <button data-filter="growthbyte" class="cs-filter-btn px-4 py-1.5 rounded-lg text-xs font-semibold transition-all">GrowthByte.ai</button>
+        <button data-filter="mailmodo" class="cs-filter-btn px-4 py-1.5 rounded-lg text-xs font-semibold transition-all">Mailmodo</button>
+        <button data-filter="movies4u" class="cs-filter-btn px-4 py-1.5 rounded-lg text-xs font-semibold transition-all">Movies4u Official</button>
+      </div>
+    </div>
+
+    <!-- Role timeline -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 reveal">
+      <div class="glass-panel rounded-xl p-4 flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg bg-indigo-500/15 text-indigo-300 flex items-center justify-center"><i data-lucide="briefcase" class="w-5 h-5"></i></div>
+        <div><div class="text-white font-semibold">SEO and Content Writer</div><div class="text-xs text-gray-400 font-mono">GrowthByte.ai, Oct 2025 to present</div></div>
+      </div>
+      <div class="glass-panel rounded-xl p-4 flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg bg-purple-500/15 text-purple-300 flex items-center justify-center"><i data-lucide="mail" class="w-5 h-5"></i></div>
+        <div><div class="text-white font-semibold">Marketing Intern</div><div class="text-xs text-gray-400 font-mono">Mailmodo, Mar 2025 to Aug 2025</div></div>
+      </div>
+      <div class="glass-panel rounded-xl p-4 flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg bg-yellow-500/15 text-yellow-300 flex items-center justify-center"><i data-lucide="film" class="w-5 h-5"></i></div>
+        <div><div class="text-white font-semibold">Admin and Editor</div><div class="text-xs text-gray-400 font-mono">Movies4u Official, May 2020 to present</div></div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+      <!-- GrowthByte: organic growth -->
+      <article class="cs-card glass-panel rounded-2xl p-8 glass-panel-hover flex flex-col justify-between reveal" data-category="growthbyte">
+        <div>
+          <div class="flex items-center justify-between mb-4 gap-3">
+            <span class="px-3 py-1 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">GrowthByte.ai</span>
+            <span class="text-xs font-mono text-gray-500">4-month sprint</span>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">74% organic traffic growth through content strategy and SERP work</h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">Wrote 600+ ranking articles, blogs and industry guides across SaaS, FinTech, Healthcare, AI, D2C and e-commerce, and reverse-engineered competitor content to ship SERP updates 2x faster.</p>
+          <div class="bg-gray-900/80 rounded-xl p-4 border border-gray-800/80 mb-6">
+            <div class="flex items-center justify-between text-xs font-mono mb-2"><span class="text-gray-400">Organic search traffic</span><span class="text-emerald-400 font-bold">+74%</span></div>
+            <div class="w-full h-2.5 bg-gray-800 rounded-full overflow-hidden"><div class="meter h-full bg-gradient-to-r from-indigo-500 to-emerald-400 rounded-full" data-width="74%" style="width:0;transition:width 1.6s cubic-bezier(.22,.8,.2,1)"></div></div>
+          </div>
+          <ul class="space-y-2.5 text-sm text-gray-300 mb-6">
+            <li class="flex items-start space-x-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i><span>Won featured snippets and primary keyword positions through competitor and SERP analysis</span></li>
+            <li class="flex items-start space-x-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i><span>Built domain authority with topic clusters across six industries</span></li>
+          </ul>
+        </div>
+        <div class="pt-4 border-t border-gray-800/60 text-xs font-mono text-gray-400">Content strategy, SERP analysis, featured snippets</div>
+      </article>
+
+      <!-- GrowthByte: pSEO + local -->
+      <article class="cs-card glass-panel rounded-2xl p-8 glass-panel-hover flex flex-col justify-between reveal" data-category="growthbyte">
+        <div>
+          <div class="flex items-center justify-between mb-4 gap-3">
+            <span class="px-3 py-1 rounded-full text-xs font-mono bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">GrowthByte.ai</span>
+            <span class="text-xs font-mono text-gray-500">6 months</span>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">279 programmatic SEO pages and local SEO campaigns</h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">Planned and deployed 279 programmatic pages to capture high-intent queries at scale, alongside Google Business Profile optimisation and local citation building for regional rankings.</p>
+          <div class="bg-gray-900/80 rounded-xl p-4 border border-gray-800/80 mb-6 flex items-center justify-around">
+            <div class="text-center"><div class="text-xl font-bold font-mono text-cyan-400">279</div><div class="text-[11px] text-gray-400">Pages deployed</div></div>
+            <div class="h-8 w-px bg-gray-800"></div>
+            <div class="text-center"><div class="text-xl font-bold font-mono text-emerald-400">6 mo</div><div class="text-[11px] text-gray-400">Time to ship</div></div>
+          </div>
+          <ul class="space-y-2.5 text-sm text-gray-300 mb-6">
+            <li class="flex items-start space-x-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i><span>Scalable organic traffic from long-tail, high-intent searches</span></li>
+            <li class="flex items-start space-x-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i><span>Higher geo-specific rankings and regional conversions</span></li>
+          </ul>
+        </div>
+        <div class="pt-4 border-t border-gray-800/60 text-xs font-mono text-gray-400">pSEO, local SEO, Google Business Profile, citations</div>
+      </article>
+
+      <!-- GrowthByte: audits + automation -->
+      <article class="cs-card glass-panel rounded-2xl p-8 glass-panel-hover flex flex-col justify-between reveal" data-category="growthbyte">
+        <div>
+          <div class="flex items-center justify-between mb-4 gap-3">
+            <span class="px-3 py-1 rounded-full text-xs font-mono bg-indigo-500/10 text-indigo-400 border border-indigo-500/30">GrowthByte.ai</span>
+            <span class="text-xs font-mono text-gray-500">Technical SEO</span>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">10+ enterprise audits and an automated SEO audit framework</h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">Audited 10+ enterprise and B2B sites, fixing crawlability, indexability and site speed issues to recover lost rankings. Built automation scripts, including an SEO auditing framework and a Minutes of Meeting tool, covering 26 sub-skills.</p>
+          <div class="grid grid-cols-3 gap-2 bg-gray-900/80 rounded-xl p-3 border border-gray-800/80 mb-6 text-center">
+            <div><div class="text-lg font-bold font-mono text-indigo-400">10+</div><div class="text-[11px] text-gray-400">Sites audited</div></div>
+            <div><div class="text-lg font-bold font-mono text-emerald-400">26</div><div class="text-[11px] text-gray-400">Sub-skills automated</div></div>
+            <div><div class="text-lg font-bold font-mono text-cyan-400">2x</div><div class="text-[11px] text-gray-400">Faster SERP updates</div></div>
+          </div>
+          <ul class="space-y-2.5 text-sm text-gray-300 mb-6">
+            <li class="flex items-start space-x-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-indigo-400 shrink-0 mt-0.5"></i><span>Led video editing and content adaptation for a B2B supermarket franchise, growing social reach</span></li>
+          </ul>
+        </div>
+        <div class="pt-4 border-t border-gray-800/60 flex items-center justify-between gap-3 text-xs font-mono text-gray-400">
+          <span>Crawlability, indexation, site speed, automation</span>
+          <button onclick="openSnippet('audit')" class="text-indigo-300 hover:text-white flex items-center gap-1 shrink-0"><i data-lucide="code" class="w-3.5 h-3.5"></i>View code</button>
+        </div>
+      </article>
+
+      <!-- Mailmodo -->
+      <article class="cs-card glass-panel rounded-2xl p-8 glass-panel-hover flex flex-col justify-between reveal" data-category="mailmodo">
+        <div>
+          <div class="flex items-center justify-between mb-4 gap-3">
+            <span class="px-3 py-1 rounded-full text-xs font-mono bg-purple-500/10 text-purple-400 border border-purple-500/30">Mailmodo internship</span>
+            <span class="text-xs font-mono text-gray-500">Mar to Aug 2025</span>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">20+ email campaigns and 60 backlinks in 30 days</h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">Wrote 40+ SEO blog posts on AMP email and interactive forms, ran email campaigns, and built Gumloop automation flows that took repetitive tasks off the team.</p>
+          <div class="grid grid-cols-3 gap-2 bg-gray-900/80 rounded-xl p-3 border border-gray-800/80 mb-6 text-center">
+            <div><div class="text-lg font-bold font-mono text-purple-400">20+</div><div class="text-[11px] text-gray-400">Email campaigns</div></div>
+            <div><div class="text-lg font-bold font-mono text-emerald-400">60</div><div class="text-[11px] text-gray-400">Backlinks in 30 days</div></div>
+            <div><div class="text-lg font-bold font-mono text-cyan-400">40+</div><div class="text-[11px] text-gray-400">Blog posts</div></div>
+          </div>
+          <ul class="space-y-2.5 text-sm text-gray-300 mb-6">
+            <li class="flex items-start space-x-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-purple-400 shrink-0 mt-0.5"></i><span>Automated content and marketing workflows with Gumloop</span></li>
+            <li class="flex items-start space-x-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-purple-400 shrink-0 mt-0.5"></i><span>Recommended YouTube content and metadata changes to lift reach, CTR and views</span></li>
+          </ul>
+        </div>
+        <div class="pt-4 border-t border-gray-800/60 text-xs font-mono text-gray-400">AMP email, link building, Gumloop, YouTube</div>
+      </article>
+
+      <!-- Movies4u -->
+      <article class="cs-card glass-panel rounded-2xl p-8 glass-panel-hover flex flex-col justify-between reveal lg:col-span-2" data-category="movies4u">
+        <div class="grid lg:grid-cols-2 gap-8">
+          <div>
+            <div class="flex items-center justify-between mb-4 gap-3">
+              <span class="px-3 py-1 rounded-full text-xs font-mono bg-yellow-500/10 text-yellow-400 border border-yellow-500/30">Movies4u Official</span>
+              <span class="text-xs font-mono text-gray-500">May 2020 to present</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-3">A 600K+ film community and pan-Indian promotions at up to 10x lower cost</h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-6">Built Movies4u Official across Instagram, X and YouTube with genuine, real-time cinema content. Partnered with 500+ films on digital promotions and planned guerrilla campaigns for mid-budget South Indian releases.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-full text-xs bg-gray-800 text-gray-300">Telugu</span>
+              <span class="px-3 py-1 rounded-full text-xs bg-gray-800 text-gray-300">Tamil</span>
+              <span class="px-3 py-1 rounded-full text-xs bg-gray-800 text-gray-300">Kannada</span>
+              <span class="px-3 py-1 rounded-full text-xs bg-gray-800 text-gray-300">Hindi</span>
+              <span class="px-3 py-1 rounded-full text-xs bg-gray-800 text-gray-300">Malayalam</span>
+              <span class="px-3 py-1 rounded-full text-xs bg-gray-800 text-gray-300">English and dubbed</span>
+            </div>
+          </div>
+          <div>
+            <div class="grid grid-cols-3 gap-2 bg-gray-900/80 rounded-xl p-4 border border-gray-800/80 mb-6 text-center">
+              <div><div class="text-xl font-bold font-mono text-yellow-400">600K+</div><div class="text-[11px] text-gray-400">Followers</div></div>
+              <div><div class="text-xl font-bold font-mono text-indigo-400">500+</div><div class="text-[11px] text-gray-400">Films promoted</div></div>
+              <div><div class="text-xl font-bold font-mono text-emerald-400">10x</div><div class="text-[11px] text-gray-400">Lower spend</div></div>
+            </div>
+            <ul class="space-y-2.5 text-sm text-gray-300">
+              <li class="flex items-start space-x-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-yellow-400 shrink-0 mt-0.5"></i><span>Verified, zero-clickbait reviews within hours of 12:30 AM premieres and 7:00 AM release shows</span></li>
+              <li class="flex items-start space-x-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-yellow-400 shrink-0 mt-0.5"></i><span>Daily and weekly box office reports for regional and national releases</span></li>
+              <li class="flex items-start space-x-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-yellow-400 shrink-0 mt-0.5"></i><span>End-to-end promotion strategy and guerrilla event marketing plans</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="pt-4 mt-6 border-t border-gray-800/60 text-xs font-mono text-gray-400">Community growth, film marketing, box office analytics</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="py-20 relative border-t border-gray-800/60 bg-gray-950/40">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 reveal">
+      <p class="text-sm font-mono text-cyan-400 mb-2">// software and AI</p>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white">B.Tech CSE projects</h2>
+      <p class="text-gray-400 mt-3 max-w-2xl mx-auto">Built during my B.Tech in Computer Science (AI &amp; ML) at VIT-AP University.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="glass-panel rounded-2xl p-6 glass-panel-hover flex flex-col justify-between reveal">
+        <div>
+          <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 mb-4"><i data-lucide="file-search" class="w-5 h-5"></i></div>
+          <h3 class="text-xl font-bold text-white mb-2">RAG-based document Q&amp;A bot</h3>
+          <p class="text-xs font-mono text-indigo-400 mb-4">Python, LangChain, ChromaDB, FAISS, OpenAI / Ollama, Streamlit</p>
+          <p class="text-sm text-gray-400 leading-relaxed mb-6">Answers questions about long PDFs, papers and textbooks using context retrieved from the text itself, which keeps LLM hallucinations in check.</p>
+        </div>
+        <button onclick="openSnippet('rag')" class="w-full py-2.5 rounded-xl font-mono text-xs font-semibold bg-gray-800 hover:bg-indigo-600/30 text-indigo-300 border border-indigo-500/30 transition-all flex items-center justify-center space-x-2"><i data-lucide="code" class="w-3.5 h-3.5"></i><span>View retrieval logic</span></button>
+      </div>
+
+      <div class="glass-panel rounded-2xl p-6 glass-panel-hover flex flex-col justify-between reveal">
+        <div>
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-4"><i data-lucide="eye" class="w-5 h-5"></i></div>
+          <h3 class="text-xl font-bold text-white mb-2">Real-time drowsiness detector</h3>
+          <p class="text-xs font-mono text-emerald-400 mb-4">Python, OpenCV, MediaPipe, dlib, PyTorch / TensorFlow</p>
+          <p class="text-sm text-gray-400 leading-relaxed mb-6">Tracks eye aspect ratio and facial landmarks from a webcam feed, and raises an alert when the eyes stay closed too long.</p>
+        </div>
+        <button onclick="openSnippet('ear')" class="w-full py-2.5 rounded-xl font-mono text-xs font-semibold bg-gray-800 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/30 transition-all flex items-center justify-center space-x-2"><i data-lucide="code" class="w-3.5 h-3.5"></i><span>View EAR calculation</span></button>
+      </div>
+
+      <div class="glass-panel rounded-2xl p-6 glass-panel-hover flex flex-col justify-between reveal">
+        <div>
+          <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-4"><i data-lucide="bar-chart-3" class="w-5 h-5"></i></div>
+          <h3 class="text-xl font-bold text-white mb-2">Customer churn and sentiment classifier</h3>
+          <p class="text-xs font-mono text-cyan-400 mb-4">Pandas, Scikit-learn, XGBoost, NLTK / VADER, Streamlit</p>
+          <p class="text-sm text-gray-400 leading-relaxed mb-6">Predicts subscription cancellations from usage and support data, paired with review sentiment scoring. Evaluated with precision, recall, F1 and ROC-AUC on imbalanced data.</p>
+        </div>
+        <div class="flex flex-wrap gap-1.5"><span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-cyan-300">Feature engineering</span><span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-cyan-300">Classification</span></div>
+      </div>
+
+      <div class="glass-panel rounded-2xl p-6 glass-panel-hover flex flex-col justify-between reveal">
+        <div>
+          <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-4"><i data-lucide="route" class="w-5 h-5"></i></div>
+          <h3 class="text-xl font-bold text-white mb-2">Smart pathfinding and maze solver</h3>
+          <p class="text-xs font-mono text-purple-400 mb-4">Python (Pygame) or JavaScript (React, HTML5 Canvas)</p>
+          <p class="text-sm text-gray-400 leading-relaxed mb-6">Visualises A*, Dijkstra, BFS and DFS navigating dynamic mazes with moving obstacles, comparing Manhattan and Euclidean heuristics.</p>
+        </div>
+        <div class="flex flex-wrap gap-1.5"><span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-purple-300">Heuristic search</span><span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-purple-300">Graph theory</span></div>
+      </div>
+
+      <div class="glass-panel rounded-2xl p-6 glass-panel-hover flex flex-col justify-between reveal md:col-span-2 lg:col-span-2">
+        <div>
+          <div class="w-10 h-10 rounded-xl bg-yellow-500/10 border border-yellow-500/30 flex items-center justify-center text-yellow-400 mb-4"><i data-lucide="bot" class="w-5 h-5"></i></div>
+          <h3 class="text-xl font-bold text-white mb-2">Competitive intelligence agent</h3>
+          <p class="text-xs font-mono text-yellow-400 mb-4">Python, CrewAI / AutoGen, BeautifulSoup, Selenium, Groq / OpenAI API</p>
+          <p class="text-sm text-gray-400 leading-relaxed mb-6 max-w-2xl">Takes a brand or product query, scrapes news and pricing data, synthesises competitor updates and writes a summary report, chaining multiple tools in an autonomous agent loop. The same thinking powers my SEO competitor research.</p>
+        </div>
+        <div class="flex flex-wrap gap-1.5"><span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-yellow-300">Agentic workflows</span><span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-yellow-300">Function calling</span><span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-yellow-300">Web scraping</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GROWTH CALCULATOR -->
+<section id="tools" class="py-20 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="glass-panel rounded-3xl p-8 sm:p-12 relative overflow-hidden reveal">
+      <div class="absolute top-0 right-0 w-96 h-96 bg-indigo-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative">
+        <div class="lg:col-span-5">
+          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-mono mb-4 border border-emerald-500/30">
+            <i data-lucide="calculator" class="w-3.5 h-3.5"></i><span>Interactive estimate</span>
+          </div>
+          <h2 class="text-3xl font-extrabold text-white mb-4">What could organic growth be worth to you?</h2>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">Set your current traffic and lead value, then pick a growth scenario. The 74% scenario mirrors the lift I delivered at GrowthByte.ai over 4 months.</p>
+          <p class="text-xs text-gray-500 leading-relaxed">This is an illustration, not a guarantee. It assumes a 2% visit-to-lead conversion rate; real results depend on your site, niche and competition.</p>
+        </div>
+
+        <div class="lg:col-span-7 bg-gray-950/80 rounded-2xl p-6 sm:p-8 border border-gray-800">
+          <div class="space-y-6">
+            <div>
+              <div class="flex justify-between items-center text-sm font-semibold mb-2">
+                <label for="calc-traffic" class="text-gray-300">Current monthly organic visits</label>
+                <span id="calc-traffic-val" class="font-mono text-indigo-400 text-base">25,000</span>
+              </div>
+              <input type="range" id="calc-traffic" min="2000" max="200000" step="1000" value="25000" class="w-full accent-indigo-500 cursor-pointer">
+            </div>
+            <div>
+              <div class="flex justify-between items-center text-sm font-semibold mb-2">
+                <label for="calc-lead" class="text-gray-300">Average lead value (₹)</label>
+                <span id="calc-lead-val" class="font-mono text-emerald-400 text-base">₹2,500</span>
+              </div>
+              <input type="range" id="calc-lead" min="100" max="50000" step="100" value="2500" class="w-full accent-emerald-500 cursor-pointer">
+            </div>
+            <div>
+              <span class="block text-sm font-semibold text-gray-300 mb-2">Growth scenario</span>
+              <div class="grid grid-cols-2 gap-3">
+                <button type="button" id="strat-standard" data-mult="1.35" class="strat py-2.5 px-4 rounded-xl text-xs font-semibold border transition-all">Technical audit fixes (+35%)</button>
+                <button type="button" id="strat-full" data-mult="1.74" class="strat py-2.5 px-4 rounded-xl text-xs font-semibold border transition-all">pSEO + content scaling (+74%)</button>
+              </div>
+            </div>
+            <div class="p-4 rounded-xl bg-indigo-950/30 border border-indigo-500/30 grid grid-cols-2 gap-4 text-center">
+              <div><span class="text-xs text-gray-400 font-mono block">Projected monthly visits</span><span id="out-traffic" class="text-2xl font-extrabold text-white font-mono">0</span></div>
+              <div><span class="text-xs text-gray-400 font-mono block">Added monthly lead value</span><span id="out-revenue" class="text-2xl font-extrabold text-emerald-400 font-mono">0</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HONORS -->
+<section id="achievements" class="py-20 relative border-t border-gray-800/60">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 reveal">
+      <p class="text-sm font-mono text-yellow-400 mb-2">// recognition</p>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Honors and education</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      <div class="glass-panel rounded-2xl p-8 glass-panel-hover border border-yellow-500/20 relative overflow-hidden reveal">
+        <div class="absolute top-0 right-0 p-6 text-yellow-500/10"><i data-lucide="shield-check" class="w-24 h-24"></i></div>
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-yellow-500/10 text-yellow-400 text-xs font-mono mb-4 border border-yellow-500/30"><i data-lucide="trophy" class="w-3.5 h-3.5"></i><span>1st place</span></div>
+        <h3 class="text-2xl font-bold text-white mb-2">National Cyber Security Hackathon</h3>
+        <p class="text-xs font-mono text-gray-400 mb-4">National Cyber Security Research Council (NCSRC) of India, April 2025</p>
+        <p class="text-sm text-gray-300 leading-relaxed">Won first place for developing high-impact cybersecurity solutions under competitive constraints.</p>
+      </div>
+
+      <div class="glass-panel rounded-2xl p-8 glass-panel-hover border border-purple-500/20 relative overflow-hidden reveal">
+        <div class="absolute top-0 right-0 p-6 text-purple-500/10"><i data-lucide="clapperboard" class="w-24 h-24"></i></div>
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 text-xs font-mono mb-4 border border-purple-500/30"><i data-lucide="award" class="w-3.5 h-3.5"></i><span>Best Director</span></div>
+        <h3 class="text-2xl font-bold text-white mb-2">Film festival recognition</h3>
+        <p class="text-xs font-mono text-gray-400 mb-4">September 2025</p>
+        <p class="text-sm text-gray-300 leading-relaxed">Honored for creative direction, narrative pacing, visual storytelling and team leadership.</p>
+      </div>
+
+      <div class="glass-panel rounded-2xl p-8 glass-panel-hover md:col-span-2 flex flex-col md:flex-row md:items-center justify-between gap-6 reveal">
+        <div class="flex items-start gap-5">
+          <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 shrink-0"><i data-lucide="graduation-cap" class="w-6 h-6"></i></div>
+          <div>
+            <h3 class="text-xl font-bold text-white">B.Tech in Computer Science and Engineering, AI &amp; ML specialisation</h3>
+            <p class="text-sm text-gray-400 mt-1">VIT-AP University, Amaravati</p>
+          </div>
+        </div>
+        <span class="text-sm font-mono text-indigo-300 shrink-0">Aug 2021 to Jul 2025</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLKIT -->
+<section class="py-16 border-t border-gray-800/60">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+    <p class="text-sm font-mono text-gray-500 mb-6 text-center">// toolkit</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div>
+        <h3 class="text-white font-semibold mb-3">Analytics and SEO tools</h3>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-gray-300">Google Search Console</span><span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-gray-300">GA4</span><span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-gray-300">Ahrefs</span><span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-gray-300">Semrush</span><span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-gray-300">Screaming Frog</span><span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-gray-300">YouTube Analytics</span>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-white font-semibold mb-3">Languages and frameworks</h3>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-gray-300">Python</span><span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-gray-300">JavaScript</span><span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-gray-300">HTML5</span><span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-gray-300">CSS3</span><span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-gray-300">SQL</span><span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-gray-300">Node.js</span><span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-gray-300">FastAPI</span><span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-gray-300">React.js</span><span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-gray-300">Selenium</span>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-white font-semibold mb-3">Data, APIs and automation</h3>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-gray-300">PostgreSQL</span><span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-gray-300">REST APIs</span><span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-gray-300">YouTube / Meta Graph APIs</span><span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-gray-300">Webhooks</span><span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-gray-300">Gumloop</span><span class="px-2.5 py-1 rounded-md text-xs font-mono bg-gray-800 text-gray-300">LLM prompting</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<footer id="contact" class="py-20 relative border-t border-gray-800 bg-gray-950">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div class="max-w-2xl mx-auto reveal">
+      <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-indigo-600 to-emerald-500 flex items-center justify-center font-mono font-bold text-2xl text-white mx-auto mb-6 shadow-xl">RV</div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Let's grow your organic traffic</h2>
+      <p class="text-gray-400 mb-8 leading-relaxed">Need someone who can audit a site, ship programmatic pages, write content that ranks and automate the repetitive work? Or plan a film's digital launch? Let's talk.</p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+        <button onclick="copyEmail()" class="w-full sm:w-auto px-6 py-3.5 rounded-xl font-bold bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg shadow-indigo-500/20 transition-all flex items-center justify-center space-x-2">
+          <i data-lucide="copy" class="w-4 h-4"></i><span>Copy email address</span>
+        </button>
+        <a href="tel:+919381477490" class="w-full sm:w-auto px-6 py-3.5 rounded-xl font-bold glass-panel hover:bg-gray-800 text-white border border-gray-700 transition-all flex items-center justify-center space-x-2">
+          <i data-lucide="phone" class="w-4 h-4 text-emerald-400"></i><span>+91 93814 77490</span>
+        </a>
+      </div>
+      <a href="mailto:vamsirampalli1@gmail.com" class="inline-block text-indigo-300 hover:text-white font-mono text-sm mb-12">vamsirampalli1@gmail.com</a>
+
+      <div class="pt-8 border-t border-gray-800 text-xs font-mono text-gray-500 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>© <span id="yr">2026</span> Rampalli Vamsi</div>
+        <div>SEO Lead, Content Writer, Web Designer, Film Marketing Strategist</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="toast" class="hidden fixed bottom-6 right-6 bg-emerald-600 text-white px-5 py-3 rounded-xl shadow-2xl font-semibold text-sm items-center space-x-2 z-[90]" role="status">
+  <i data-lucide="check" class="w-4 h-4"></i><span>Email address copied</span>
+</div>
+
+<!-- CODE VIEWER MODAL -->
+<div id="code-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-[85] hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="glass-panel border border-gray-700 rounded-2xl w-full max-w-3xl overflow-hidden shadow-2xl">
+    <div class="bg-gray-900 px-4 py-3 border-b border-gray-800 flex items-center justify-between">
+      <div class="flex items-center space-x-2">
+        <div class="w-3 h-3 rounded-full bg-red-500/80"></div><div class="w-3 h-3 rounded-full bg-yellow-500/80"></div><div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+        <span id="modal-title" class="ml-2 font-mono text-xs text-gray-400">seo_audit.py</span>
+      </div>
+      <button onclick="closeModal()" class="text-gray-400 hover:text-white text-xs font-mono">✕ Close</button>
+    </div>
+    <div class="flex gap-1 px-3 pt-3 bg-gray-950 font-mono text-xs">
+      <button data-snip="audit" class="tab px-3 py-1.5 rounded-t-md">seo_audit.py</button>
+      <button data-snip="rag" class="tab px-3 py-1.5 rounded-t-md">rag_qa.py</button>
+      <button data-snip="ear" class="tab px-3 py-1.5 rounded-t-md">drowsiness.py</button>
+    </div>
+    <div class="p-6 bg-gray-950 font-mono text-xs text-gray-300 overflow-auto max-h-[60vh]">
+      <pre id="modal-code" class="leading-relaxed text-indigo-300 whitespace-pre"></pre>
+    </div>
+    <div class="bg-gray-900 p-4 border-t border-gray-800 flex items-center justify-between gap-3">
+      <span class="text-[11px] font-mono text-gray-500">Simplified excerpt for illustration</span>
+      <button onclick="simulateRun()" class="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition-all flex items-center space-x-2">
+        <i data-lucide="play" class="w-3.5 h-3.5"></i><span>Run demo</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Code snippets kept as plain text so nothing needs escaping -->
+<script type="text/plain" id="snip-audit">import requests
+from bs4 import BeautifulSoup
+
+def audit_page(url):
+    """One check group from my automated SEO audit framework."""
+    html = requests.get(url, headers={"User-Agent": "SEOAuditBot/1.0"}, timeout=15).text
+    soup = BeautifulSoup(html, "html.parser")
+
+    report = {
+        "title_length": len(soup.title.text.strip()) if soup.title else 0,
+        "meta_description": bool(soup.find("meta", attrs={"name": "description"})),
+        "h1_count": len(soup.find_all("h1")),
+        "schema_blocks": len(soup.find_all("script", type="application/ld+json")),
+        "noindex": bool(soup.find("meta", attrs={"name": "robots", "content": lambda c: c and "noindex" in c})),
+        "canonical": (soup.find("link", rel="canonical") or {}).get("href"),
+        "images_missing_alt": sum(1 for i in soup.find_all("img") if not i.get("alt")),
+    }
+    return report
+
+print(audit_page("https://example.com"))</script>
+
+<script type="text/plain" id="snip-audit-out">[+] Fetching https://example.com
+[+] title_length: 14  meta_description: False
+[+] h1_count: 1  schema_blocks: 0  noindex: False
+[!] Missing meta description
+[!] No structured data found, consider adding JSON-LD</script>
+
+<script type="text/plain" id="snip-rag">from langchain_community.document_loaders import PyPDFLoader
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_community.vectorstores import Chroma
+from langchain_openai import OpenAIEmbeddings, ChatOpenAI
+
+docs = PyPDFLoader("textbook.pdf").load()
+chunks = RecursiveCharacterTextSplitter(chunk_size=800, chunk_overlap=120).split_documents(docs)
+store = Chroma.from_documents(chunks, OpenAIEmbeddings())
+
+def answer(question):
+    context = store.similarity_search(question, k=4)
+    prompt = (
+        "Answer only from the context below. If it is not there, say you don't know.\n\n"
+        + "\n---\n".join(c.page_content for c in context)
+        + f"\n\nQuestion: {question}"
+    )
+    return ChatOpenAI(model="gpt-4o-mini").invoke(prompt).content
+
+print(answer("What is gradient descent?"))</script>
+
+<script type="text/plain" id="snip-rag-out">[+] Loaded 312 pages, split into 1,148 chunks
+[+] Retrieved 4 relevant chunks
+[+] Answer grounded in pages 87, 88, 91</script>
+
+<script type="text/plain" id="snip-ear">import numpy as np
+
+def eye_aspect_ratio(eye):
+    # eye: six (x, y) landmarks around one eye
+    a = np.linalg.norm(eye[1] - eye[5])
+    b = np.linalg.norm(eye[2] - eye[4])
+    c = np.linalg.norm(eye[0] - eye[3])
+    return (a + b) / (2.0 * c)
+
+EAR_THRESHOLD = 0.25
+CLOSED_FRAMES = 20
+counter = 0
+
+def check_frame(left_eye, right_eye):
+    global counter
+    ear = (eye_aspect_ratio(left_eye) + eye_aspect_ratio(right_eye)) / 2
+    counter = counter + 1 if ear < EAR_THRESHOLD else 0
+    if counter >= CLOSED_FRAMES:
+        print("ALERT: drowsiness detected")</script>
+
+<script type="text/plain" id="snip-ear-out">[+] Camera stream opened at 30 fps
+[+] EAR 0.31 ... 0.29 ... 0.18 ... 0.17
+[!] ALERT: drowsiness detected after 20 closed frames</script>
+
+<script>
+  lucide.createIcons();
+
+  // cinematic intro
+  window.addEventListener('load', () => requestAnimationFrame(() => document.body.classList.add('loaded')));
+  setTimeout(() => document.body.classList.add('loaded'), 1800);
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // mobile menu
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => {
+    const open = menu.classList.toggle('hidden') === false;
+    menuBtn.setAttribute('aria-expanded', open);
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.add('hidden')));
+
+  // rotating roles
+  const roles = ['SEO Lead', 'Content Writer', 'Web Designer', 'Film Marketing Strategist'];
+  const roleEl = document.getElementById('role');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce) {
+    let r = 0, i = roles[0].length, deleting = true;
+    setTimeout(function tick() {
+      const word = roles[r];
+      if (deleting) { i--; if (i === 0) { deleting = false; r = (r + 1) % roles.length; } }
+      else { i++; }
+      roleEl.textContent = roles[r].slice(0, i) || '\u200b';
+      let delay = deleting ? 45 : 85;
+      if (!deleting && i === roles[r].length) { deleting = true; delay = 1900; }
+      setTimeout(tick, delay);
+    }, 3200);
+  }
+
+  // counters + reveals + meters via IntersectionObserver
+  function animateCounter(el) {
+    const target = +el.dataset.target, start = performance.now(), dur = 1600;
+    const step = now => {
+      const p = Math.min((now - start) / dur, 1), eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased);
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      if (el.id === 'stats') el.querySelectorAll('.counter').forEach(animateCounter);
+      else if (el.classList.contains('meter')) el.style.width = el.dataset.width;
+      else el.classList.add('in');
+      io.unobserve(el);
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal, .meter, #stats').forEach(el => io.observe(el));
+
+  // scroll progress
+  const bar = document.getElementById('progress');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - innerHeight;
+    bar.style.width = (h > 0 ? scrollY / h * 100 : 0) + '%';
+  }, { passive: true });
+
+  // case study filter
+  const ACTIVE = ['bg-indigo-600', 'text-white'], IDLE = ['glass-panel', 'text-gray-400', 'hover:text-white'];
+  const filterBtns = document.querySelectorAll('.cs-filter-btn');
+  function setFilter(cat) {
+    filterBtns.forEach(b => {
+      const on = b.dataset.filter === cat;
+      b.classList.remove(...ACTIVE, ...IDLE);
+      b.classList.add(...(on ? ACTIVE : IDLE));
+      b.setAttribute('aria-pressed', on);
+    });
+    document.querySelectorAll('.cs-card').forEach(c => {
+      const show = cat === 'all' || c.dataset.category === cat;
+      c.style.display = show ? 'flex' : 'none';
+      if (show) c.classList.add('in');
+    });
+  }
+  filterBtns.forEach(b => b.addEventListener('click', () => setFilter(b.dataset.filter)));
+  setFilter('all');
+
+  // growth calculator
+  const tIn = document.getElementById('calc-traffic'), lIn = document.getElementById('calc-lead');
+  const fmt = n => n.toLocaleString('en-IN');
+  let mult = 1.74;
+  function updateCalc() {
+    const visits = +tIn.value, lead = +lIn.value;
+    document.getElementById('calc-traffic-val').textContent = fmt(visits);
+    document.getElementById('calc-lead-val').textContent = '₹' + fmt(lead);
+    const projected = Math.round(visits * mult);
+    const value = Math.round((projected - visits) * 0.02) * lead;
+    document.getElementById('out-traffic').textContent = fmt(projected);
+    document.getElementById('out-revenue').textContent = '+₹' + fmt(value);
+  }
+  document.querySelectorAll('.strat').forEach(b => b.addEventListener('click', () => {
+    mult = +b.dataset.mult;
+    document.querySelectorAll('.strat').forEach(x => {
+      const on = x === b;
+      x.className = 'strat py-2.5 px-4 rounded-xl text-xs font-semibold border transition-all ' +
+        (on ? 'bg-indigo-600/30 border-indigo-500 text-white' : 'bg-gray-900 border-gray-800 text-gray-400 hover:text-white');
+      x.setAttribute('aria-pressed', on);
+    });
+    updateCalc();
+  }));
+  tIn.addEventListener('input', updateCalc);
+  lIn.addEventListener('input', updateCalc);
+  document.getElementById('strat-full').click();
+
+  // code viewer modal
+  const modal = document.getElementById('code-modal');
+  const names = { audit: 'seo_audit.py', rag: 'rag_qa.py', ear: 'drowsiness.py' };
+  let current = 'audit';
+  function openSnippet(key) {
+    current = key;
+    document.getElementById('modal-title').textContent = names[key];
+    document.getElementById('modal-code').textContent = document.getElementById('snip-' + key).textContent;
+    document.querySelectorAll('.tab').forEach(t => {
+      const on = t.dataset.snip === key;
+      t.className = 'tab px-3 py-1.5 rounded-t-md ' + (on ? 'bg-gray-800 text-white' : 'text-gray-500 hover:text-gray-300');
+    });
+    modal.classList.remove('hidden'); modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    modal.classList.add('hidden'); modal.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+  function simulateRun() {
+    const pre = document.getElementById('modal-code');
+    pre.textContent = document.getElementById('snip-' + current).textContent +
+      '\n\n# --- demo output ---\n' + document.getElementById('snip-' + current + '-out').textContent;
+    pre.parentElement.scrollTop = pre.parentElement.scrollHeight;
+  }
+  document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => openSnippet(t.dataset.snip)));
+  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  // copy email
+  function copyEmail() {
+    const email = 'vamsirampalli1@gmail.com';
+    const done = () => {
+      const t = document.getElementById('toast');
+      t.classList.remove('hidden'); t.classList.add('flex');
+      setTimeout(() => { t.classList.add('hidden'); t.classList.remove('flex'); }, 2500);
+    };
+    if (navigator.clipboard) navigator.clipboard.writeText(email).then(done, () => location.href = 'mailto:' + email);
+    else location.href = 'mailto:' + email;
+  }
+</script>
+</body>
+</html>
